@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="GrandSky Facility & Management Services LLP - Professional facility management solutions in New Delhi."/>
+<title>GrandSky Facility & Management Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+:root{
+  --deep:#050C18;--mid:#091526;--surface:#0E1E38;--panel:#132340;
+  --blue:#1B8FFF;--cyan:#00CFFF;--teal:#00FFCF;--blue-dim:rgba(27,143,255,.12);
+  --glass:rgba(255,255,255,.04);--glass2:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);
+  --text:#EEF3FF;--muted:#6E89B0;--faint:#3D5070;
+  --fd:'Syne',sans-serif;--fb:'DM Sans',sans-serif;
+  --r6:6px;--r10:10px;--r16:16px;
+}
+body{background:var(--deep);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--mid)}
+::-webkit-scrollbar-thumb{background:var(--faint);border-radius:3px}
+
+/* ── Grid bg ── */
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(27,143,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(27,143,255,.03) 1px,transparent 1px);
+  background-size:44px 44px}
+
+/* ── Orbs ── */
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(27,143,255,.13),transparent 70%);top:-120px;right:-80px}
+.orb2{width:380px;height:380px;background:radial-gradient(circle,rgba(0,207,255,.09),transparent 70%);bottom:-60px;left:5%}
+.orb3{width:280px;height:280px;background:radial-gradient(circle,rgba(0,255,207,.06),transparent 70%);top:40%;left:50%}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:64px;border-bottom:0.5px solid var(--border);
+  background:rgba(5,12,24,.85);backdrop-filter:blur(16px)}
+.nav-logo{font-family:var(--fd);font-weight:800;font-size:19px;letter-spacing:-.5px;cursor:pointer}
+.nav-logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links li a{font-size:13px;color:var(--muted);letter-spacing:.3px;transition:color .2s;cursor:pointer}
+.nav-links li a:hover,.nav-links li a.active{color:var(--text)}
+.nav-links li a.active{color:var(--cyan)}
+.nav-cta{font-size:13px;font-weight:500;color:var(--cyan);border:0.5px solid rgba(0,207,255,.3);
+  padding:8px 20px;border-radius:var(--r6);background:rgba(0,207,255,.06);
+  cursor:pointer;transition:all .2s;white-space:nowrap}
+.nav-cta:hover{background:rgba(0,207,255,.14);border-color:rgba(0,207,255,.55)}
+.nav-mobile-btn{display:none;background:none;border:none;color:var(--text);font-size:22px;cursor:pointer}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;z-index:99;
+  background:rgba(5,12,24,.97);backdrop-filter:blur(20px);
+  border-bottom:0.5px solid var(--border);padding:20px 40px;flex-direction:column;gap:16px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:15px;color:var(--muted);cursor:pointer;padding:6px 0;border-bottom:0.5px solid var(--border)}
+.mobile-menu a:last-child{border:none;color:var(--cyan)}
+
+/* ── PAGE WRAPPER ── */
+.page{display:none;position:relative;z-index:1;padding-top:64px;min-height:100vh}
+.page.active{display:block}
+
+/* ── SECTION UTILS ── */
+.section{padding:80px 40px;max-width:1140px;margin:0 auto}
+.section-sm{padding:60px 40px;max-width:1140px;margin:0 auto}
+.badge-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(27,143,255,.1);
+  border:0.5px solid rgba(27,143,255,.25);border-radius:100px;padding:6px 16px;margin-bottom:28px}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,207,255,.4)}50%{box-shadow:0 0 0 6px rgba(0,207,255,0)}}
+.badge-pill span{font-size:12px;color:var(--cyan);letter-spacing:.5px;font-weight:500}
+.section-label{font-size:12px;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;margin-bottom:12px}
+h1.display{font-family:var(--fd);font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-1.5px}
+h2.display{font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.1;letter-spacing:-1px}
+h3.display{font-family:var(--fd);font-size:clamp(20px,2.5vw,26px);font-weight:700;line-height:1.2;letter-spacing:-.4px}
+.grad{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad2{background:linear-gradient(90deg,var(--cyan),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub-text{font-size:17px;color:var(--muted);line-height:1.75;font-weight:300}
+.divider{height:0.5px;background:var(--border);margin:0 40px}
+
+/* ── BUTTONS ── */
+.btn-primary{font-family:var(--fb);font-size:14px;font-weight:500;color:#060D1A;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));padding:13px 28px;
+  border-radius:var(--r6);border:none;cursor:pointer;letter-spacing:.2px;
+  transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-ghost{font-family:var(--fb);font-size:14px;font-weight:400;color:var(--text);
+  background:var(--glass);border:0.5px solid var(--border);padding:12px 24px;
+  border-radius:var(--r6);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn-ghost:hover{background:var(--glass2);border-color:var(--border2)}
+.btn-outline{font-size:14px;color:var(--cyan);border:0.5px solid rgba(0,207,255,.35);
+  padding:11px 22px;border-radius:var(--r6);cursor:pointer;background:rgba(0,207,255,.05);
+  transition:all .2s;display:inline-flex;align-items:center;gap:7px;font-weight:500}
+.btn-outline:hover{background:rgba(0,207,255,.12);border-color:rgba(0,207,255,.6)}
+
+/* ── GLASS CARD ── */
+.glass-card{background:var(--glass);border:0.5px solid var(--border);border-radius:var(--r16);padding:28px;
+  transition:border-color .25s,background .25s}
+.glass-card:hover{border-color:var(--border2);background:var(--glass2)}
+.glass-card-sm{background:var(--glass);border:0.5px solid var(--border);border-radius:var(--r10);padding:20px 24px}
+
+/* ── GRID LAYOUTS ── */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+/* ── STATS ROW ── */
+.stats-row{display:flex;border-top:0.5px solid var(--border);padding-top:36px;margin-top:50px;gap:0}
+.stat-item{flex:1;padding-right:36px}
+.stat-item+.stat-item{border-left:0.5px solid var(--border);padding-left:36px}
+.stat-num{font-family:var(--fd);font-size:34px;font-weight:800;color:var(--text);letter-spacing:-1.5px}
+.stat-num sup{font-size:16px;font-weight:600;color:var(--cyan);margin-left:2px}
+.stat-lbl{font-size:12px;color:var(--muted);letter-spacing:.4px;margin-top:4px}
+
+/* ── SERVICE CHIPS ── */
+.chip-row{display:flex;gap:10px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--glass);
+  border:0.5px solid var(--border);border-radius:var(--r6);padding:8px 14px;
+  transition:all .2s;cursor:pointer}
+.chip:hover{border-color:rgba(0,207,255,.35);background:rgba(0,207,255,.06)}
+.chip i{font-size:15px;color:var(--cyan)}
+.chip span{font-size:12px;color:var(--muted);letter-spacing:.2px}
+
+/* ── SERVICE ICON ── */
+.svc-icon{width:48px;height:48px;border-radius:var(--r10);background:var(--blue-dim);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;border:0.5px solid rgba(27,143,255,.2)}
+.svc-icon i{font-size:22px;color:var(--cyan)}
+
+/* ── VALUE ROW ── */
+.value-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+/* ── TABLE ── */
+.data-table{width:100%;border-collapse:collapse;font-size:14px}
+.data-table th{text-align:left;padding:12px 16px;color:var(--muted);font-weight:400;font-size:12px;
+  letter-spacing:.5px;text-transform:uppercase;border-bottom:0.5px solid var(--border)}
+.data-table td{padding:16px;border-bottom:0.5px solid var(--border);color:var(--text)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:rgba(255,255,255,.02)}
+.badge-green{display:inline-flex;align-items:center;gap:5px;background:rgba(0,255,207,.08);
+  color:var(--teal);font-size:12px;padding:3px 10px;border-radius:100px;border:0.5px solid rgba(0,255,207,.2)}
+.badge-blue{display:inline-flex;align-items:center;gap:5px;background:rgba(27,143,255,.1);
+  color:var(--cyan);font-size:12px;padding:3px 10px;border-radius:100px;border:0.5px solid rgba(0,207,255,.2)}
+
+/* ── FORM ── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-full{grid-column:1/-1}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-group label{font-size:13px;color:var(--muted);letter-spacing:.3px}
+.form-group input,.form-group select,.form-group textarea{
+  font-family:var(--fb);font-size:14px;background:var(--glass);border:0.5px solid var(--border);
+  color:var(--text);padding:12px 16px;border-radius:var(--r6);outline:none;
+  transition:border-color .2s,background .2s;appearance:none;-webkit-appearance:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--faint)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:rgba(0,207,255,.45);background:rgba(0,207,255,.04)}
+.form-group select option{background:var(--surface);color:var(--text)}
+.form-group textarea{resize:vertical;min-height:120px;line-height:1.6}
+.form-check{display:flex;align-items:flex-start;gap:12px;margin-top:4px}
+.form-check input[type=checkbox]{width:16px;height:16px;margin-top:2px;cursor:pointer;accent-color:var(--cyan)}
+.form-check label{font-size:13px;color:var(--muted);cursor:pointer}
+
+/* ── FAQ ── */
+.faq-item{border-bottom:0.5px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;gap:16px}
+.faq-q span{font-size:15px;font-weight:500;color:var(--text)}
+.faq-q i{font-size:18px;color:var(--muted);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-q i{transform:rotate(45deg);color:var(--cyan)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:18px}
+.faq-a p{font-size:14px;color:var(--muted);line-height:1.75}
+
+/* ── CONTACT INFO CARDS ── */
+.contact-info-card{display:flex;align-items:flex-start;gap:16px;padding:22px;background:var(--glass);
+  border:0.5px solid var(--border);border-radius:var(--r10)}
+.contact-icon{width:42px;height:42px;border-radius:var(--r10);background:var(--blue-dim);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;border:0.5px solid rgba(27,143,255,.2)}
+.contact-icon i{font-size:20px;color:var(--cyan)}
+.contact-info-card h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.contact-info-card p{font-size:13px;color:var(--muted);line-height:1.7}
+.contact-info-card a{color:var(--cyan)}
+
+/* ── ABOUT VALUES ── */
+.value-card{padding:24px;background:var(--glass);border:0.5px solid var(--border);border-radius:var(--r10)}
+.value-card .v-icon{font-size:22px;color:var(--cyan);margin-bottom:12px}
+.value-card h4{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px}
+.value-card p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* ── WHY GRID ── */
+.why-card{padding:22px;border-radius:var(--r10);border:0.5px solid var(--border);background:var(--glass)}
+.why-card i{font-size:20px;color:var(--cyan);margin-bottom:10px}
+.why-card h4{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+.why-card p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ── CTA BAND ── */
+.cta-band{background:linear-gradient(135deg,rgba(27,143,255,.1),rgba(0,207,255,.06));
+  border:0.5px solid rgba(27,143,255,.18);border-radius:var(--r16);
+  padding:52px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:-1px;
+  background:linear-gradient(135deg,rgba(27,143,255,.08),transparent 60%);border-radius:var(--r16)}
+.cta-band>*{position:relative;z-index:1}
+
+/* ── FOOTER ── */
+footer{border-top:0.5px solid var(--border);padding:52px 40px 28px;position:relative;z-index:1}
+.footer-inner{max-width:1140px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:40px}
+.footer-brand p{font-size:13px;color:var(--muted);line-height:1.75;margin-top:12px;max-width:260px}
+.footer-col h4{font-size:13px;font-weight:600;color:var(--text);letter-spacing:.4px;margin-bottom:16px;text-transform:uppercase}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li{font-size:13px;color:var(--muted);cursor:pointer;transition:color .2s}
+.footer-col ul li:hover{color:var(--cyan)}
+.footer-col ul li a{color:var(--muted);transition:color .2s}
+.footer-col ul li a:hover{color:var(--cyan)}
+.footer-contact{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:10px}
+.footer-contact span{display:flex;align-items:flex-start;gap:8px}
+.footer-contact i{color:var(--cyan);font-size:15px;flex-shrink:0;margin-top:2px}
+.footer-bottom{border-top:0.5px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:12px;color:var(--faint)}
+.footer-bottom .reg{font-size:11px;color:var(--faint)}
+
+/* ── CLIENTS PAGE ── */
+.client-logo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.client-logo-card{background:var(--glass);border:0.5px solid var(--border);border-radius:var(--r10);
+  padding:28px 20px;display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:600;color:var(--muted);letter-spacing:.3px;
+  transition:all .25s;text-align:center}
+.client-logo-card:hover{border-color:var(--border2);background:var(--glass2);color:var(--text)}
+.testimonial-card{background:var(--glass);border:0.5px solid var(--border);border-radius:var(--r16);padding:28px}
+.testimonial-card .stars{color:var(--cyan);font-size:14px;letter-spacing:2px;margin-bottom:14px}
+.testimonial-card p{font-size:14px;color:var(--muted);line-height:1.8;font-style:italic;margin-bottom:18px}
+.testimonial-card .author{font-size:13px;color:var(--text);font-weight:500}
+.testimonial-card .role{font-size:12px;color:var(--faint)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:32px;right:32px;z-index:999;background:var(--surface);
+  border:0.5px solid rgba(0,207,255,.35);border-radius:var(--r10);padding:16px 22px;
+  display:flex;align-items:center;gap:12px;transform:translateY(80px);opacity:0;
+  transition:all .35s cubic-bezier(.34,1.56,.64,1);max-width:340px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast i{font-size:18px;color:var(--teal)}
+.toast p{font-size:14px;color:var(--text)}
+
+/* ── HERO STRIP ── */
+.hero-page-banner{padding:60px 40px 40px;background:linear-gradient(180deg,rgba(27,143,255,.06) 0%,transparent 100%);
+  border-bottom:0.5px solid var(--border)}
+.hero-page-banner .inner{max-width:1140px;margin:0 auto}
+
+/* ── PROCESS STEPS ── */
+.steps{display:flex;gap:0;position:relative;margin:40px 0}
+.steps::before{content:'';position:absolute;top:22px;left:22px;right:22px;height:0.5px;background:var(--border);z-index:0}
+.step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 12px}
+.step-num{width:44px;height:44px;border-radius:50%;background:var(--surface);border:0.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:15px;color:var(--cyan);
+  margin-bottom:14px}
+.step h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.step p{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile-btn{display:block}
+  .section,.section-sm{padding:60px 20px}
+  .grid-3,.grid-4{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
+  .stats-row{flex-wrap:wrap;gap:24px}
+  .stat-item{flex:40%;padding:0}
+  .stat-item+.stat-item{border-left:none}
+  .form-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .client-logo-grid{grid-template-columns:repeat(2,1fr)}
+  .value-row{grid-template-columns:1fr 1fr}
+  .hero-page-banner{padding:40px 20px 30px}
+  h1.display{font-size:34px}
+  h2.display{font-size:26px}
+}
+@media(max-width:560px){
+  .grid-3,.grid-4,.value-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .cta-band{padding:36px 24px}
+  .steps{flex-direction:column;gap:24px}
+  .steps::before{display:none}
+  .step{align-items:flex-start;text-align:left;flex-direction:row;gap:14px}
+  .step-num{flex-shrink:0;margin-bottom:0}
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="navigate('home')">Grand<span>Sky</span></div>
+  <ul class="nav-links">
+    <li><a id="nav-home" class="active" onclick="navigate('home')">Home</a></li>
+    <li><a id="nav-about" onclick="navigate('about')">About</a></li>
+    <li><a id="nav-services" onclick="navigate('services')">Services</a></li>
+    <li><a id="nav-clients" onclick="navigate('clients')">Clients</a></li>
+    <li><a id="nav-contact" onclick="navigate('contact')">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="navigate('contact')">Get Free Quote</button>
+  <button class="nav-mobile-btn" onclick="toggleMobileMenu()" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a onclick="navigate('home');closeMobile()">Home</a>
+  <a onclick="navigate('about');closeMobile()">About</a>
+  <a onclick="navigate('services');closeMobile()">Services</a>
+  <a onclick="navigate('clients');closeMobile()">Clients</a>
+  <a onclick="navigate('contact');closeMobile()">Contact</a>
+  <a onclick="navigate('contact');closeMobile()">Get Free Quote →</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HOME PAGE
+═══════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section style="padding:88px 40px 0;position:relative;z-index:1;max-width:1140px;margin:0 auto">
+    <div class="badge-pill"><div class="badge-dot"></div><span>Delhi NCR's Trusted FM Partner Since 2021</span></div>
+    <h1 class="display" style="max-width:720px;margin-bottom:20px">
+      Facilities Managed<br>with <span class="grad">Precision</span><br>&amp; <span class="grad2">Expertise</span>
+    </h1>
+    <p class="sub-text" style="max-width:520px;margin-bottom:36px">
+      End-to-end facility management — MEP, security, solar, HVAC, UPS &amp; vendor coordination — engineered for businesses that cannot afford downtime.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:60px">
+      <button class="btn-primary" onclick="navigate('contact')"><i class="ti ti-calendar"></i>Get Free Consultation</button>
+      <button class="btn-ghost" onclick="navigate('services')">Explore Services <i class="ti ti-arrow-right"></i></button>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">100<sup>+</sup></div><div class="stat-lbl">Facilities Managed</div></div>
+      <div class="stat-item"><div class="stat-num">5<sup>+</sup></div><div class="stat-lbl">Years of Excellence</div></div>
+      <div class="stat-item"><div class="stat-num">95<sup>%</sup></div><div class="stat-lbl">Client Satisfaction</div></div>
+      <div class="stat-item"><div class="stat-num">24<sup>/7</sup></div><div class="stat-lbl">Available Support</div></div>
+    </div>
+  </section>
+
+  <!-- Services strip -->
+  <section style="padding:20px 40px 0;max-width:1140px;margin:36px auto 0;border-top:0.5px solid var(--border)">
+    <div class="chip-row">
+      <div class="chip" onclick="navigate('services')"><i class="ti ti-tool"></i><span>MEP Maintenance</span></div>
+      <div class="chip" onclick="navigate('services')"><i class="ti ti-sun"></i><span>Solar Power</span></div>
+      <div class="chip" onclick="navigate('services')"><i class="ti ti-arrows-shuffle"></i><span>Vendor Management</span></div>
+      <div class="chip" onclick="navigate('services')"><i class="ti ti-bolt"></i><span>Battery &amp; UPS</span></div>
+      <div class="chip" onclick="navigate('services')"><i class="ti ti-camera"></i><span>Surveillance</span></div>
+      <div class="chip" onclick="navigate('services')"><i class="ti ti-snowflake"></i><span>HVAC &amp; AC</span></div>
+      <div class="chip" onclick="navigate('services')"><i class="ti ti-shield"></i><span>Security Guarding</span></div>
+    </div>
+  </section>
+
+  <!-- Core Services -->
+  <section class="section">
+    <div class="section-label">What We Do</div>
+    <h2 class="display" style="margin-bottom:12px">Our Core Services</h2>
+    <p class="sub-text" style="max-width:500px;margin-bottom:44px">Comprehensive facility solutions designed for operational excellence.</p>
+    <div class="grid-3">
+      <div class="glass-card">
+        <div class="svc-icon"><i class="ti ti-tool"></i></div>
+        <h3 style="font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:10px">MEP Maintenance</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75">Comprehensive Mechanical, Electrical &amp; Plumbing systems maintenance ensuring seamless facility operations and compliance.</p>
+        <button class="btn-outline" style="margin-top:20px;font-size:13px" onclick="navigate('services')">Learn More <i class="ti ti-arrow-right"></i></button>
+      </div>
+      <div class="glass-card">
+        <div class="svc-icon"><i class="ti ti-sun"></i></div>
+        <h3 style="font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:10px">Solar Power Solutions</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75">Clean energy installation, maintenance &amp; optimization delivering sustainable, cost-effective solar power systems.</p>
+        <button class="btn-outline" style="margin-top:20px;font-size:13px" onclick="navigate('services')">Learn More <i class="ti ti-arrow-right"></i></button>
+      </div>
+      <div class="glass-card">
+        <div class="svc-icon"><i class="ti ti-arrows-shuffle"></i></div>
+        <h3 style="font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:10px">Vendor Management</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75">Strategic vendor coordination, contract management &amp; quality assurance optimizing supplier relationships and costs.</p>
+        <button class="btn-outline" style="margin-top:20px;font-size:13px" onclick="navigate('services')">Learn More <i class="ti ti-arrow-right"></i></button>
+      </div>
+      <div class="glass-card">
+        <div class="svc-icon"><i class="ti ti-bolt"></i></div>
+        <h3 style="font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:10px">Battery &amp; UPS Services</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75">Commercial battery supply, UPS installation, maintenance &amp; emergency replacement with 99.9% uptime guarantee.</p>
+        <button class="btn-outline" style="margin-top:20px;font-size:13px" onclick="navigate('services')">Learn More <i class="ti ti-arrow-right"></i></button>
+      </div>
+      <div class="glass-card">
+        <div class="svc-icon"><i class="ti ti-camera"></i></div>
+        <h3 style="font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:10px">Surveillance &amp; Security</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75">Advanced CCTV, access control &amp; real-time monitoring systems ensuring complete visibility and rapid incident response.</p>
+        <button class="btn-outline" style="margin-top:20px;font-size:13px" onclick="navigate('services')">Learn More <i class="ti ti-arrow-right"></i></button>
+      </div>
+      <div class="glass-card">
+        <div class="svc-icon"><i class="ti ti-snowflake"></i></div>
+        <h3 style="font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:10px">Air Conditioning</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75">Professional HVAC installation, maintenance programs, repairs &amp; optimization providing 365-day support availability.</p>
+        <button class="btn-outline" style="margin-top:20px;font-size:13px" onclick="navigate('services')">Learn More <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+    <div style="margin-top:20px">
+      <div class="glass-card" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div class="svc-icon" style="margin-bottom:0"><i class="ti ti-shield-lock"></i></div>
+          <div>
+            <h3 style="font-family:var(--fd);font-size:18px;font-weight:700;margin-bottom:4px">Security Guarding</h3>
+            <p style="font-size:14px;color:var(--muted)">Professional, trained security personnel with comprehensive protection and vigilant 24/7 monitoring.</p>
+          </div>
+        </div>
+        <button class="btn-outline" style="font-size:13px" onclick="navigate('services')">Learn More <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">Why GrandSky</div>
+    <h2 class="display" style="margin-bottom:44px">Why Choose GrandSky<br>Facility &amp; Management Services?</h2>
+    <div class="grid-3">
+      <div class="why-card"><i class="ti ti-certificate"></i><h4>5+ Years Experience</h4><p>Proven track record managing 100+ facilities across diverse industries with consistent excellence.</p></div>
+      <div class="why-card"><i class="ti ti-topology-star"></i><h4>Integrated Solutions</h4><p>Seamless coordination across all facility management functions eliminating operational gaps.</p></div>
+      <div class="why-card"><i class="ti ti-headset"></i><h4>24/7 Support</h4><p>Round-the-clock availability with 1-hour emergency response time ensuring peace of mind.</p></div>
+      <div class="why-card"><i class="ti ti-trending-down"></i><h4>Cost Optimization</h4><p>Advanced systems delivering significant operational savings and efficiency improvements.</p></div>
+      <div class="why-card"><i class="ti ti-users"></i><h4>Professional Team</h4><p>Certified, trained professionals bringing expertise and accountability to every engagement.</p></div>
+      <div class="why-card"><i class="ti ti-chart-line"></i><h4>Scalable Services</h4><p>Solutions that grow with your business without compromising quality as you expand.</p></div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">How It Works</div>
+    <h2 class="display" style="margin-bottom:44px">Simple Onboarding Process</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div><h4>Consultation</h4><p>Free assessment of your facility needs and requirements.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div><h4>Proposal</h4><p>Custom service plan with transparent pricing submitted within 48hrs.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div><h4>Onboarding</h4><p>Dedicated team deployed with zero disruption to your operations.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div><h4>Optimize</h4><p>Continuous monitoring, reporting and performance improvement.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="section">
+    <div class="cta-band">
+      <div class="badge-pill" style="margin-bottom:20px"><div class="badge-dot"></div><span>Ready to Optimize?</span></div>
+      <h2 class="display" style="margin-bottom:16px">Transform Your Facility<br>Operations Today</h2>
+      <p class="sub-text" style="max-width:480px;margin:0 auto 32px">Discover how GrandSky can streamline your facility management, reduce costs, and give you complete operational peace of mind.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <button class="btn-primary" onclick="navigate('contact')"><i class="ti ti-calendar"></i>Schedule Consultation</button>
+        <button class="btn-ghost" onclick="navigate('about')">Learn About Us <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="hero-page-banner">
+    <div class="inner">
+      <div class="badge-pill"><div class="badge-dot"></div><span>Est. 2021 · New Delhi, India</span></div>
+      <h1 class="display" style="margin-bottom:16px">About <span class="grad">GrandSky</span></h1>
+      <p class="sub-text" style="max-width:560px">Transforming Facility Management Since 2021 — built on a foundation of professional expertise, operational integrity, and a relentless drive for excellence.</p>
+    </div>
+  </div>
+
+  <!-- Who We Are -->
+  <section class="section">
+    <div class="grid-2" style="align-items:start">
+      <div>
+        <div class="section-label">Who We Are</div>
+        <h2 class="display" style="margin-bottom:20px">A Leading Integrated FM Provider</h2>
+        <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px">GrandSky Facility &amp; Management Services LLP is a leading provider of integrated facility management solutions, dedicated to transforming how organizations operate their buildings and infrastructure.</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:24px">With 5+ years of industry experience, we have become the trusted partner for 100+ facilities across diverse sectors — from commercial offices and industrial plants to government-backed metering projects in partnership with L&amp;T and DHBVN.</p>
+        <p style="font-size:15px;color:var(--muted);line-height:1.8">Our commitment to operational excellence, sustainability, and customer satisfaction drives everything we do. We combine technical expertise, professional staff, and cutting-edge systems to deliver comprehensive solutions that optimize efficiency and reduce costs.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="glass-card">
+          <div style="font-size:22px;color:var(--cyan);margin-bottom:12px">→</div>
+          <h4 style="font-family:var(--fd);font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px">Our Mission</h4>
+          <p style="font-size:13px;color:var(--muted);line-height:1.75">To deliver integrated, sustainable, and scalable facility management solutions that optimize operational performance, reduce costs, and create exceptional value for our clients while promoting environmental responsibility.</p>
+        </div>
+        <div class="glass-card">
+          <div style="font-size:22px;color:var(--cyan);margin-bottom:12px">▷</div>
+          <h4 style="font-family:var(--fd);font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px">Our Vision</h4>
+          <p style="font-size:13px;color:var(--muted);line-height:1.75">To be the most trusted and innovative facility management partner, recognized for excellence, reliability, and transformative solutions that empower organizations to thrive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">100<sup>+</sup></div><div class="stat-lbl">Facilities Managed</div></div>
+      <div class="stat-item"><div class="stat-num">5<sup>+</sup></div><div class="stat-lbl">Years of Experience</div></div>
+      <div class="stat-item"><div class="stat-num">95<sup>%</sup></div><div class="stat-lbl">Client Satisfaction</div></div>
+      <div class="stat-item"><div class="stat-num">7<sup>+</sup></div><div class="stat-lbl">Service Verticals</div></div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">What Drives Us</div>
+    <h2 class="display" style="margin-bottom:44px">Our Core Values</h2>
+    <div class="value-row">
+      <div class="value-card"><div class="v-icon"><i class="ti ti-star"></i></div><h4>Excellence</h4><p>We pursue the highest standards in every aspect of our work, continuously innovating and improving to deliver exceptional results.</p></div>
+      <div class="value-card"><div class="v-icon"><i class="ti ti-leaf"></i></div><h4>Sustainability</h4><p>Committed to environmentally responsible practices that reduce impact while delivering operational efficiency and cost savings.</p></div>
+      <div class="value-card"><div class="v-icon"><i class="ti ti-handshake"></i></div><h4>Partnership</h4><p>Building strong relationships with clients, working collaboratively to understand needs and deliver customized solutions.</p></div>
+      <div class="value-card"><div class="v-icon"><i class="ti ti-shield-check"></i></div><h4>Integrity</h4><p>Operating with transparency and accountability, building trust through honest communication and reliable delivery on commitments.</p></div>
+      <div class="value-card"><div class="v-icon"><i class="ti ti-bulb"></i></div><h4>Innovation</h4><p>Leveraging cutting-edge systems and data analytics for real-time monitoring and continuous optimization of facility performance.</p></div>
+      <div class="value-card"><div class="v-icon"><i class="ti ti-chart-line"></i></div><h4>Growth</h4><p>Solutions that scale from single facilities to enterprise-wide operations without compromising quality or service delivery.</p></div>
+    </div>
+  </section>
+
+  <!-- Why Partner -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">Why Partner With Us</div>
+    <h2 class="display" style="margin-bottom:44px">The GrandSky Advantage</h2>
+    <div class="grid-3">
+      <div class="why-card"><i class="ti ti-certificate"></i><h4>Proven Track Record</h4><p>5+ years managing diverse facilities across multiple industries with consistent excellence and reliability.</p></div>
+      <div class="why-card"><i class="ti ti-topology-star"></i><h4>Integrated Solutions</h4><p>Seamless coordination across all facility functions in one operation, eliminating coordination gaps.</p></div>
+      <div class="why-card"><i class="ti ti-cpu"></i><h4>Advanced Technology</h4><p>Leverage cutting-edge systems and data analytics for real-time monitoring and optimization.</p></div>
+      <div class="why-card"><i class="ti ti-leaf"></i><h4>Sustainability Focus</h4><p>Commitment to renewable energy, eco-friendly practices, and sustainable infrastructure aligned with your ESG goals.</p></div>
+      <div class="why-card"><i class="ti ti-chart-line"></i><h4>Scalability</h4><p>Solutions that scale from single facilities to enterprise-wide operations without compromising quality.</p></div>
+      <div class="why-card"><i class="ti ti-headset"></i><h4>Expert 24/7 Support</h4><p>Dedicated round-the-clock support with certified professionals ensuring peak facility efficiency.</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta-band">
+      <h2 class="display" style="margin-bottom:16px">Experience the <span class="grad">GrandSky</span> Difference</h2>
+      <p class="sub-text" style="max-width:460px;margin:0 auto 32px">Let us show you how professional facility management can transform your operations.</p>
+      <button class="btn-primary" onclick="navigate('contact')"><i class="ti ti-arrow-right"></i>Get Started Today</button>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SERVICES PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-services">
+  <div class="hero-page-banner">
+    <div class="inner">
+      <div class="badge-pill"><div class="badge-dot"></div><span>7 Verticals · Complete Facility Coverage</span></div>
+      <h1 class="display" style="margin-bottom:16px">Our Professional <span class="grad">Services</span></h1>
+      <p class="sub-text" style="max-width:540px">Comprehensive solutions designed for facility excellence — from MEP maintenance and solar power to security and vendor management.</p>
+    </div>
+  </div>
+
+  <!-- Services Detail -->
+  <section class="section">
+    <!-- MEP -->
+    <div id="mep" class="glass-card" style="margin-bottom:20px;scroll-margin-top:80px">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <div class="svc-icon" style="flex-shrink:0"><i class="ti ti-tool"></i></div>
+        <div style="flex:1;min-width:260px">
+          <h3 class="display" style="font-size:24px;margin-bottom:10px">MEP Maintenance</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px">Comprehensive Mechanical, Electrical &amp; Plumbing systems maintenance ensuring seamless facility operations and code compliance.</p>
+          <div class="grid-2" style="gap:16px">
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">What We Offer</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Mechanical systems maintenance &amp; repair</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Electrical systems inspection &amp; testing</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Plumbing maintenance &amp; emergency repairs</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Predictive maintenance programs</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Code compliance verification</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Key Benefits</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Reduced system failures</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Extended equipment lifespan</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Preventive maintenance savings</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Emergency response capability</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px;min-width:160px">
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">24<sup style="font-size:12px">/7</sup></div><div class="stat-lbl">Coverage</div></div>
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">1<sup style="font-size:12px">hr</sup></div><div class="stat-lbl">Emergency Response</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solar -->
+    <div id="solar" class="glass-card" style="margin-bottom:20px;scroll-margin-top:80px">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <div class="svc-icon" style="flex-shrink:0"><i class="ti ti-sun"></i></div>
+        <div style="flex:1;min-width:260px">
+          <h3 class="display" style="font-size:24px;margin-bottom:10px">Solar Power Solutions</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px">Clean energy installation, maintenance &amp; optimization delivering sustainable, cost-effective solar power systems for commercial &amp; residential properties.</p>
+          <div class="grid-2" style="gap:16px">
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">What We Offer</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Solar panel installation &amp; configuration</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>System design &amp; energy assessment</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Performance monitoring &amp; optimization</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Battery storage integration</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Government incentive assistance</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Key Benefits</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Reduced energy costs 40–60%</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Environmental sustainability</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Government tax incentives</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Long-term ROI guarantee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px;min-width:160px">
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">40<sup style="font-size:12px">%</sup></div><div class="stat-lbl">Energy Cost Reduction</div></div>
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">24<sup style="font-size:12px">/7</sup></div><div class="stat-lbl">Technical Support</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendor -->
+    <div id="vendor" class="glass-card" style="margin-bottom:20px;scroll-margin-top:80px">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <div class="svc-icon" style="flex-shrink:0"><i class="ti ti-arrows-shuffle"></i></div>
+        <div style="flex:1;min-width:260px">
+          <h3 class="display" style="font-size:24px;margin-bottom:10px">Vendor Management</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px">Strategic vendor coordination, contract management &amp; quality assurance that optimizes supplier relationships and drives down operational costs by 15–25%.</p>
+          <div class="grid-2" style="gap:16px">
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">What We Offer</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Vendor selection &amp; qualification</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Contract negotiation &amp; management</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Performance tracking &amp; reporting</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Cost optimization strategies</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Key Benefits</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Reduced vendor costs 15–25%</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Improved service quality</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Centralized management control</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Risk mitigation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px;min-width:160px">
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">25<sup style="font-size:12px">%</sup></div><div class="stat-lbl">Cost Reduction</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Battery UPS -->
+    <div id="battery" class="glass-card" style="margin-bottom:20px;scroll-margin-top:80px">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <div class="svc-icon" style="flex-shrink:0"><i class="ti ti-bolt"></i></div>
+        <div style="flex:1;min-width:260px">
+          <h3 class="display" style="font-size:24px;margin-bottom:10px">Battery &amp; UPS Services</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px">Reliable power backup systems ensuring continuous operations with 99.9% uptime guarantee for commercial and industrial facilities.</p>
+          <div class="grid-2" style="gap:16px">
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">What We Offer</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>UPS system installation &amp; configuration</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Commercial battery supply &amp; replacement</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>System design &amp; capacity planning</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Emergency replacement services</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Power monitoring &amp; analytics</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Key Benefits</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>99.9% uptime guarantee</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Protected equipment &amp; data</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Reduced downtime risk</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Regulatory compliance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px;min-width:160px">
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">99.9<sup style="font-size:12px">%</sup></div><div class="stat-lbl">Uptime Guarantee</div></div>
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">1<sup style="font-size:12px">hr</sup></div><div class="stat-lbl">Emergency Response</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Surveillance -->
+    <div id="surveillance" class="glass-card" style="margin-bottom:20px;scroll-margin-top:80px">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <div class="svc-icon" style="flex-shrink:0"><i class="ti ti-camera"></i></div>
+        <div style="flex:1;min-width:260px">
+          <h3 class="display" style="font-size:24px;margin-bottom:10px">Surveillance &amp; Security</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px">Advanced CCTV, access control &amp; real-time monitoring systems ensuring complete facility visibility and rapid incident response within 20 minutes.</p>
+          <div class="grid-2" style="gap:16px">
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">What We Offer</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>CCTV camera systems &amp; video surveillance</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Access control &amp; digital locks</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Alarm monitoring &amp; incident alerts</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Incident recording &amp; evidence preservation</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Integration with security protocols</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Key Benefits</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Real-time facility monitoring</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Rapid incident detection</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Complete facility coverage</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Deterrent to criminal activity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;min-width:160px">
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">&lt;20<sup style="font-size:12px">min</sup></div><div class="stat-lbl">Response Time</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AC -->
+    <div id="ac" class="glass-card" style="margin-bottom:20px;scroll-margin-top:80px">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <div class="svc-icon" style="flex-shrink:0"><i class="ti ti-snowflake"></i></div>
+        <div style="flex:1;min-width:260px">
+          <h3 class="display" style="font-size:24px;margin-bottom:10px">Air Conditioning Services</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px">Professional HVAC installation, maintenance &amp; repair with 365-day support availability. From installation to optimization — we keep your environment perfect.</p>
+          <div class="grid-2" style="gap:16px">
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">What We Offer</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>HVAC system installation &amp; configuration</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Preventive maintenance programs</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Emergency repairs &amp; troubleshooting</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Refrigerant management &amp; compliance</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Key Benefits</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Optimal climate control</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Improved energy efficiency</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Emergency 365-day support</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Enhanced employee comfort</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;min-width:160px">
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">365<sup style="font-size:12px">days</sup></div><div class="stat-lbl">Support Available</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Security -->
+    <div id="security" class="glass-card" style="scroll-margin-top:80px">
+      <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <div class="svc-icon" style="flex-shrink:0"><i class="ti ti-shield-lock"></i></div>
+        <div style="flex:1;min-width:260px">
+          <h3 class="display" style="font-size:24px;margin-bottom:10px">Security Guarding</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px">Professional protection for your facility with trained, vigilant security personnel available 24/7 — access control, patrol services &amp; rapid incident response.</p>
+          <div class="grid-2" style="gap:16px">
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">What We Offer</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>On-site security guards (professional training)</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Access control &amp; credential management</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Patrol services &amp; facility monitoring</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Event security &amp; crowd management</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Key Benefits</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:7px">
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Comprehensive facility protection</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Reduced security incidents</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Rapid incident management</li>
+                <li style="font-size:13px;color:var(--muted);display:flex;gap:8px"><i class="ti ti-check" style="color:var(--teal);flex-shrink:0"></i>Compliance with security standards</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;min-width:160px">
+          <div class="glass-card-sm" style="text-align:center"><div class="stat-num" style="font-size:22px">24<sup style="font-size:12px">/7</sup></div><div class="stat-lbl">On-site Coverage</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage Table -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">At a Glance</div>
+    <h2 class="display" style="margin-bottom:32px">Service Coverage Summary</h2>
+    <div style="overflow-x:auto;border-radius:var(--r16);border:0.5px solid var(--border)">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Service</th><th>Coverage</th><th>Response Time</th><th>Support</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>MEP Maintenance</td><td><span class="badge-green">Continuous</span></td><td>Emergency Support</td><td><span class="badge-blue">24/7 Available</span></td></tr>
+          <tr><td>Solar Power Solutions</td><td><span class="badge-green">Performance Monitoring</span></td><td>Rapid Support</td><td><span class="badge-blue">24/7 Technical</span></td></tr>
+          <tr><td>Vendor Management</td><td><span class="badge-green">Full Coordination</span></td><td>Real-time Oversight</td><td>Dedicated Manager</td></tr>
+          <tr><td>Battery &amp; UPS</td><td><span class="badge-green">99.9% Uptime</span></td><td>1-hour Emergency</td><td><span class="badge-blue">24/7 Technical</span></td></tr>
+          <tr><td>Surveillance &amp; Security</td><td><span class="badge-green">Real-time Monitoring</span></td><td>&lt;20 minutes</td><td><span class="badge-blue">24/7 Monitoring</span></td></tr>
+          <tr><td>Air Conditioning</td><td><span class="badge-green">365 Days/Year</span></td><td>Same-day Service</td><td><span class="badge-blue">24/7 Available</span></td></tr>
+          <tr><td>Security Guarding</td><td><span class="badge-green">24/7 On-site</span></td><td>Immediate</td><td>Continuous</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta-band">
+      <h2 class="display" style="margin-bottom:16px">Need Professional<br>Facility Management?</h2>
+      <p class="sub-text" style="max-width:460px;margin:0 auto 32px">Contact us today to discuss your specific requirements and receive a customized proposal.</p>
+      <button class="btn-primary" onclick="navigate('contact')"><i class="ti ti-file-text"></i>Request Service Quote</button>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CLIENTS PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-clients">
+  <div class="hero-page-banner">
+    <div class="inner">
+      <div class="badge-pill"><div class="badge-dot"></div><span>100+ Facilities · Trusted Partners</span></div>
+      <h1 class="display" style="margin-bottom:16px">Our <span class="grad">Clients</span></h1>
+      <p class="sub-text" style="max-width:540px">Building long-term partnerships with businesses and organizations across Delhi NCR and beyond who trust GrandSky with their most critical operations.</p>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <section class="section">
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">100<sup>+</sup></div><div class="stat-lbl">Facilities Managed</div></div>
+      <div class="stat-item"><div class="stat-num">95<sup>%</sup></div><div class="stat-lbl">Client Retention Rate</div></div>
+      <div class="stat-item"><div class="stat-num">5<sup>+</sup></div><div class="stat-lbl">Years of Trust</div></div>
+      <div class="stat-item"><div class="stat-num">6.5L<sup>+</sup></div><div class="stat-lbl">Smart Meters Installed</div></div>
+    </div>
+  </section>
+
+  <!-- Notable Partners -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">Notable Partnerships</div>
+    <h2 class="display" style="margin-bottom:12px">Trusted by Industry Leaders</h2>
+    <p class="sub-text" style="max-width:500px;margin-bottom:40px">Including government-backed projects in partnership with L&amp;T and DHBVN Vidyut Vitran Nigam for Gurugram smart metering.</p>
+    <div class="client-logo-grid">
+      <div class="client-logo-card"><div><div style="font-size:18px;font-family:var(--fd);font-weight:700;margin-bottom:4px">L&amp;T</div><div style="font-size:11px;color:var(--faint)">Larsen &amp; Toubro</div></div></div>
+      <div class="client-logo-card"><div><div style="font-size:18px;font-family:var(--fd);font-weight:700;margin-bottom:4px">DHBVN</div><div style="font-size:11px;color:var(--faint)">Vidyut Vitran Nigam</div></div></div>
+      <div class="client-logo-card"><div><div style="font-size:18px;font-family:var(--fd);font-weight:700;margin-bottom:4px">Haryana</div><div style="font-size:11px;color:var(--faint)">State Government Project</div></div></div>
+      <div class="client-logo-card"><div><div style="font-size:18px;font-family:var(--fd);font-weight:700;margin-bottom:4px">100+</div><div style="font-size:11px;color:var(--faint)">Commercial Facilities</div></div></div>
+      <div class="client-logo-card"><div><div style="font-size:18px;font-family:var(--fd);font-weight:700;margin-bottom:4px">Delhi NCR</div><div style="font-size:11px;color:var(--faint)">Corporates &amp; Offices</div></div></div>
+      <div class="client-logo-card"><div><div style="font-size:18px;font-family:var(--fd);font-weight:700;margin-bottom:4px">Industrial</div><div style="font-size:11px;color:var(--faint)">Plants &amp; Warehouses</div></div></div>
+      <div class="client-logo-card"><div><div style="font-size:18px;font-family:var(--fd);font-weight:700;margin-bottom:4px">Residential</div><div style="font-size:11px;color:var(--faint)">Societies &amp; Complexes</div></div></div>
+      <div class="client-logo-card"><div><div style="font-size:18px;font-family:var(--fd);font-weight:700;margin-bottom:4px">Retail</div><div style="font-size:11px;color:var(--faint)">Malls &amp; Retail Chains</div></div></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">Client Feedback</div>
+    <h2 class="display" style="margin-bottom:44px">What Our Clients Say</h2>
+    <div class="grid-3">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"GrandSky transformed how we manage our facility. Their MEP team is incredibly responsive — we haven't had a single unplanned downtime since onboarding."</p>
+        <div class="author">Facility Manager</div>
+        <div class="role">Commercial Complex, Gurugram</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The solar installation was seamless. Their team handled everything from government paperwork to commissioning — and our energy bills dropped by 52%."</p>
+        <div class="author">Operations Head</div>
+        <div class="role">Manufacturing Plant, Delhi</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Their security guarding service is professional and reliable. The CCTV integration with access control gives us complete peace of mind 24/7."</p>
+        <div class="author">Admin Director</div>
+        <div class="role">Corporate Office, Noida</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">Industries Served</div>
+    <h2 class="display" style="margin-bottom:32px">Across Every Sector</h2>
+    <div class="grid-4">
+      <div class="glass-card-sm" style="text-align:center;padding:20px 16px"><i class="ti ti-building" style="font-size:24px;color:var(--cyan);display:block;margin-bottom:10px"></i><div style="font-size:14px;font-weight:600;margin-bottom:4px">Commercial</div><div style="font-size:12px;color:var(--muted)">Offices &amp; Complexes</div></div>
+      <div class="glass-card-sm" style="text-align:center;padding:20px 16px"><i class="ti ti-building-factory" style="font-size:24px;color:var(--cyan);display:block;margin-bottom:10px"></i><div style="font-size:14px;font-weight:600;margin-bottom:4px">Industrial</div><div style="font-size:12px;color:var(--muted)">Plants &amp; Warehouses</div></div>
+      <div class="glass-card-sm" style="text-align:center;padding:20px 16px"><i class="ti ti-home" style="font-size:24px;color:var(--cyan);display:block;margin-bottom:10px"></i><div style="font-size:14px;font-weight:600;margin-bottom:4px">Residential</div><div style="font-size:12px;color:var(--muted)">Housing Societies</div></div>
+      <div class="glass-card-sm" style="text-align:center;padding:20px 16px"><i class="ti ti-building-store" style="font-size:24px;color:var(--cyan);display:block;margin-bottom:10px"></i><div style="font-size:14px;font-weight:600;margin-bottom:4px">Retail</div><div style="font-size:12px;color:var(--muted)">Malls &amp; Chains</div></div>
+      <div class="glass-card-sm" style="text-align:center;padding:20px 16px"><i class="ti ti-school" style="font-size:24px;color:var(--cyan);display:block;margin-bottom:10px"></i><div style="font-size:14px;font-weight:600;margin-bottom:4px">Educational</div><div style="font-size:12px;color:var(--muted)">Schools &amp; Colleges</div></div>
+      <div class="glass-card-sm" style="text-align:center;padding:20px 16px"><i class="ti ti-building-hospital" style="font-size:24px;color:var(--cyan);display:block;margin-bottom:10px"></i><div style="font-size:14px;font-weight:600;margin-bottom:4px">Healthcare</div><div style="font-size:12px;color:var(--muted)">Hospitals &amp; Clinics</div></div>
+      <div class="glass-card-sm" style="text-align:center;padding:20px 16px"><i class="ti ti-building-bank" style="font-size:24px;color:var(--cyan);display:block;margin-bottom:10px"></i><div style="font-size:14px;font-weight:600;margin-bottom:4px">Government</div><div style="font-size:12px;color:var(--muted)">Public Projects</div></div>
+      <div class="glass-card-sm" style="text-align:center;padding:20px 16px"><i class="ti ti-cpu" style="font-size:24px;color:var(--cyan);display:block;margin-bottom:10px"></i><div style="font-size:14px;font-weight:600;margin-bottom:4px">Technology</div><div style="font-size:12px;color:var(--muted)">IT Parks &amp; Data Centers</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta-band">
+      <h2 class="display" style="margin-bottom:16px">Join 100+ Satisfied<br><span class="grad">Facility Partners</span></h2>
+      <p class="sub-text" style="max-width:440px;margin:0 auto 32px">Let us manage your facility with the same excellence our current clients enjoy every day.</p>
+      <button class="btn-primary" onclick="navigate('contact')"><i class="ti ti-calendar"></i>Start a Conversation</button>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CONTACT PAGE
+═══════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="hero-page-banner">
+    <div class="inner">
+      <div class="badge-pill"><div class="badge-dot"></div><span>24-48hr Response · 24/7 Emergency Line</span></div>
+      <h1 class="display" style="margin-bottom:16px">Get In <span class="grad">Touch</span></h1>
+      <p class="sub-text" style="max-width:500px">Have questions? Our team is ready to help you optimize your facility management. Reach out and we'll respond within 24–48 hours.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="grid-2" style="gap:40px;align-items:start">
+      <!-- Contact Info -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="ti ti-map-pin"></i></div>
+          <div><h4>Address</h4><p>53-A, S/F Block-A, Keshoram Park,<br>Bindapur, New Delhi, Delhi 110059</p></div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="ti ti-phone"></i></div>
+          <div><h4>Phone</h4><p>Main: <a href="tel:+919810031191">+91 98100 31191</a><br>Emergency: <a href="tel:+919910031191">+91 99100 31191</a></p></div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="ti ti-mail"></i></div>
+          <div><h4>Email</h4><p><a href="mailto:customer@grandskyfacility.com">customer@grandskyfacility.com</a><br><a href="mailto:grandskyfacility@gmail.com">grandskyfacility@gmail.com</a></p></div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-icon"><i class="ti ti-clock"></i></div>
+          <div><h4>Business Hours</h4><p>Mon–Fri: 8:00 AM – 6:00 PM<br>Sat, Sun: Closed<br><strong style="color:var(--cyan)">24/7 Emergency Support Available</strong></p></div>
+        </div>
+
+        <!-- Response Times -->
+        <div style="background:var(--glass);border:0.5px solid var(--border);border-radius:var(--r10);padding:20px">
+          <p style="font-size:12px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px">Response Times</p>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:13px;color:var(--muted)">General Inquiries</span>
+              <span class="badge-blue">24–48 hours</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:13px;color:var(--muted)">Service Requests</span>
+              <span class="badge-green">Same day</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:13px;color:var(--muted)">Emergency Issues</span>
+              <span class="badge-green">1 hour</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="glass-card" style="padding:32px">
+        <h3 style="font-family:var(--fd);font-size:22px;font-weight:700;margin-bottom:24px">Send Us a Message</h3>
+        <div id="contact-form">
+          <div class="form-grid">
+            <div class="form-group"><label>Full Name *</label><input type="text" id="f-name" placeholder="Rajesh Kumar"/></div>
+            <div class="form-group"><label>Email Address *</label><input type="email" id="f-email" placeholder="rajesh@company.com"/></div>
+            <div class="form-group"><label>Phone Number *</label><input type="tel" id="f-phone" placeholder="+91 98765 43210"/></div>
+            <div class="form-group"><label>Company Name</label><input type="text" id="f-company" placeholder="Your Company Ltd."/></div>
+            <div class="form-group form-full">
+              <label>Service Interest *</label>
+              <select id="f-service">
+                <option value="">— Select a Service —</option>
+                <option>Security Guarding</option>
+                <option>Surveillance &amp; Security</option>
+                <option>Battery &amp; UPS</option>
+                <option>Air Conditioning</option>
+                <option>Solar Power Solutions</option>
+                <option>Vendor Management</option>
+                <option>MEP Maintenance</option>
+                <option>General Consultation</option>
+              </select>
+            </div>
+            <div class="form-group form-full"><label>Message *</label><textarea id="f-message" placeholder="Describe your facility requirements, size, and any specific challenges you're facing..."></textarea></div>
+          </div>
+          <div class="form-check" style="margin:16px 0">
+            <input type="checkbox" id="f-agree"/>
+            <label for="f-agree">I agree to the privacy policy and terms of service</label>
+          </div>
+          <button class="btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="submitForm()">
+            <i class="ti ti-send"></i>Send Message
+          </button>
+          <p style="font-size:12px;color:var(--faint);text-align:center;margin-top:12px">We'll respond within 24–48 hours during business hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <div class="divider"></div>
+  <section class="section">
+    <div class="section-label">Common Questions</div>
+    <h2 class="display" style="margin-bottom:40px">Frequently Asked Questions</h2>
+    <div style="max-width:720px">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>What areas do you serve?</span><i class="ti ti-plus"></i></div>
+        <div class="faq-a"><p>We provide facility management services primarily across Delhi NCR — New Delhi, Gurugram, Noida, Faridabad and surrounding regions. We also work with clients across other locations on a case-by-case basis. Contact us to discuss your specific location and requirements.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>How quickly can you respond to emergencies?</span><i class="ti ti-plus"></i></div>
+        <div class="faq-a"><p>Our emergency response team is available 24/7 with a guaranteed 1-hour response time for critical facility issues. For Battery &amp; UPS emergencies, we maintain a 1-hour SLA. For surveillance incidents, our response time is under 20 minutes.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Do you offer customized service packages?</span><i class="ti ti-plus"></i></div>
+        <div class="faq-a"><p>Yes, absolutely. We customize services to match your facility's specific needs and budget. Our integrated approach allows flexible combinations — you can choose individual verticals or our full-stack facility management solution. We'll assess your facility and propose a tailored plan.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Can you manage multiple facility locations?</span><i class="ti ti-plus"></i></div>
+        <div class="faq-a"><p>Absolutely. We currently manage 100+ facilities across multiple locations with centralized coordination and consistent quality standards. Our dedicated facility managers ensure uniform service delivery regardless of the number of sites.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>What about payment and contract terms?</span><i class="ti ti-plus"></i></div>
+        <div class="faq-a"><p>We offer flexible payment options and contract terms tailored to your business — monthly, quarterly, or annual contracts are available. Contact us for a detailed quote that fits your budget and operational cycle.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>How do I get started?</span><i class="ti ti-plus"></i></div>
+        <div class="faq-a"><p>Simply fill out the contact form above or call us directly at +91 98100 31191. We'll schedule a free facility consultation to assess your needs, after which we deliver a customized proposal within 48 hours. Onboarding is seamless with zero disruption to your operations.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta-band">
+      <h2 class="display" style="margin-bottom:16px">Ready to Transform<br>Your Facility?</h2>
+      <p class="sub-text" style="max-width:460px;margin:0 auto 32px">Let's discuss how GrandSky can optimize your operations and reduce costs.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:+919810031191" class="btn-primary"><i class="ti ti-phone"></i>Call Now</a>
+        <a href="mailto:customer@grandskyfacility.com" class="btn-ghost"><i class="ti ti-mail"></i>Email Us</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER (shared) -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">Grand<span style="color:var(--cyan)">Sky</span></div>
+        <p>Professional Facility Management — delivering operational excellence across Delhi NCR since 2021. Your trusted partner for MEP, solar, security, HVAC &amp; beyond.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="navigate('home')">Home</a></li>
+          <li><a onclick="navigate('about')">About Us</a></li>
+          <li><a onclick="navigate('services')">Services</a></li>
+          <li><a onclick="navigate('clients')">Clients</a></li>
+          <li><a onclick="navigate('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a onclick="navigate('services')">Security Guarding</a></li>
+          <li><a onclick="navigate('services')">Surveillance &amp; CCTV</a></li>
+          <li><a onclick="navigate('services')">Battery &amp; UPS</a></li>
+          <li><a onclick="navigate('services')">Air Conditioning</a></li>
+          <li><a onclick="navigate('services')">MEP Maintenance</a></li>
+          <li><a onclick="navigate('services')">Solar Power</a></li>
+          <li><a onclick="navigate('services')">Vendor Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact">
+          <span><i class="ti ti-map-pin"></i>53-A, S/F Block-A, Keshoram Park, Bindapur, New Delhi 110059</span>
+          <span><i class="ti ti-phone"></i><a href="tel:+919810031191">+91 98100 31191</a></span>
+          <span><i class="ti ti-phone"></i><a href="tel:+919910031191">+91 99100 31191</a></span>
+          <span><i class="ti ti-mail"></i><a href="mailto:customer@grandskyfacility.com">customer@grandskyfacility.com</a></span>
+          <span><i class="ti ti-clock"></i>Mon–Fri 8AM–6PM</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 GrandSky Facility &amp; Management Services LLP. All rights reserved.</p>
+      <p class="reg">CIN: LLP · New Delhi, India</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <i class="ti ti-circle-check"></i>
+  <p>Message sent! We'll respond within 24–48 hours.</p>
+</div>
+
+<script>
+// ── Router ──
+function navigate(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  const navEl = document.getElementById('nav-' + page);
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ── Mobile menu ──
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// ── FAQ ──
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ── Form submit ──
+function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const service = document.getElementById('f-service').value;
+  const message = document.getElementById('f-message').value.trim();
+  const agree = document.getElementById('f-agree').checked;
+  if (!name || !email || !phone || !service || !message) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+  if (!agree) {
+    alert('Please agree to the privacy policy to continue.');
+    return;
+  }
+  // Compose mailto
+  const subject = encodeURIComponent('Service Inquiry: ' + service + ' — ' + name);
+  const body = encodeURIComponent(
+    'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone +
+    '\nCompany: ' + (document.getElementById('f-company').value || 'N/A') +
+    '\nService: ' + service + '\n\nMessage:\n' + message
+  );
+  window.location.href = 'mailto:customer@grandskyfacility.com?subject=' + subject + '&body=' + body;
+  showToast();
+}
+
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// ── Scroll-triggered nav shadow ──
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.boxShadow = window.scrollY > 10 ? '0 1px 30px rgba(0,0,0,.4)' : 'none';
+});
+
+// ── Hash routing on load ──
+const hashPage = location.hash.replace('#','');
+if (['home','about','services','clients','contact'].includes(hashPage)) navigate(hashPage);
+</script>
+</body>
+</html>
